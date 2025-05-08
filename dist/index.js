@@ -43,4 +43,44 @@ function Page(btn) {
     return ` btn up is ${btn.up} - ${btn.left} - ${btn.right}`;
 }
 console.log(Page({ right: "GoRight", left: "GoLeft", up: true }));
+function compar(num1, num2) {
+    if (num1 === num2) {
+        return 0;
+    }
+    else if (num1 > num2) {
+        return 1;
+    }
+    else {
+        return -1;
+    }
+}
+function comparstr(str1) {
+    if (str1.startsWith("A") === true) {
+        return "A";
+    }
+    else if (str1.startsWith("B") === true) {
+        return "B";
+    }
+    else {
+        return "C";
+    }
+}
+console.log(comparstr("A"));
+let art = [100, "ZIzo", true];
+console.log(art);
+art.push(150, false);
+console.log(art);
+let [id, title, avi] = art;
+console.log(id);
+console.log(title);
+console.log(avi);
+function vid(nam) {
+    console.log(nam);
+    return;
+}
+vid("Mido");
+const printname = (names) => {
+    console.log(names);
+};
+console.log(printname("mizoo"));
 //# sourceMappingURL=index.js.map

@@ -68,3 +68,56 @@ function Page(btn: mix) {
   return ` btn up is ${btn.up} - ${btn.left} - ${btn.right}`;
 }
 console.log(Page({ right: "GoRight", left: "GoLeft", up: true }));
+
+//literal Types
+type nums = 0 | 1 | -1;
+function compar(num1: number, num2: number): nums {
+  if (num1 === num2) {
+    return 0;
+  } else if (num1 > num2) {
+    return 1;
+  } else {
+    return -1;
+  }
+}
+
+type Txt = "A" | "B" | "C";
+function comparstr(str1: string): Txt {
+  if (str1.startsWith("A") === true) {
+    return "A";
+  } else if (str1.startsWith("B") === true) {
+    return "B";
+  } else {
+    return "C";
+  }
+}
+
+console.log(comparstr("A"));
+
+// Tuple Data type
+
+let art: [number, string, boolean] = [100, "ZIzo", true];
+console.log(art);
+art.push(150, false);
+console.log(art);
+
+// Tuple use destruction
+let [id, title, avi] = art;
+console.log(id);
+console.log(title);
+console.log(avi);
+
+//void Data type
+
+function vid(nam: string): void {
+  console.log(nam);
+  return;
+}
+vid("Mido");
+
+// Never data Type
+
+const nvr = (msg: string) => {
+  throw new Error(msg);
+};
+console.log(nvr("Test Error"));
