@@ -117,7 +117,62 @@ vid("Mido");
 
 // Never data Type
 
-const nvr = (msg: string) => {
-  throw new Error(msg);
+// const nvr = (msg: string) => {
+//   throw new Error(msg);
+// };
+// console.log(nvr("Test Error"));
+
+//Enums Data Type
+enum Cuntries {
+  one = "Egypt",
+  Two = "Ksa",
+  three = "UAe",
+  four = "Sodan",
+}
+enum cun2 {
+  five = Cuntries.one + " My cun",
+}
+let nams = "hassan";
+if (nams === "zizo") {
+  console.log(`Heloo ${nams} Your cuntry is ${Cuntries.one}`);
+} else if (nams === "hassan") {
+  console.log(`Heloo ${nams} Your cuntry is ${cun2.five}`);
+}
+
+// Data Assertions
+
+let Head = document.getElementById("headr") as HTMLElement;
+Head.style.color = "red";
+
+let img = <HTMLImageElement>document.getElementById("img");
+img.src;
+
+let inp = document.getElementById("input") as HTMLInputElement;
+inp.value;
+
+let dt: any = 100;
+dt.repeat(15);
+
+// Union and intersection types
+
+let alldt: string | number;
+alldt = 10;
+alldt = "10";
+
+type A = {
+  one: string;
+  two: boolean;
 };
-console.log(nvr("Test Error"));
+type B = {
+  three: number;
+};
+
+type mixAB = A & B;
+
+function tstmix(tst: mixAB) {
+  console.log(tst.one);
+  console.log(tst.two);
+  console.log(tst.three);
+}
+
+tstmix({ one: "zizo", two: true, three: 100 });

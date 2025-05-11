@@ -79,8 +79,39 @@ function vid(nam) {
     return;
 }
 vid("Mido");
-const printname = (names) => {
-    console.log(names);
-};
-console.log(printname("mizoo"));
+var Cuntries;
+(function (Cuntries) {
+    Cuntries["one"] = "Egypt";
+    Cuntries["Two"] = "Ksa";
+    Cuntries["three"] = "UAe";
+    Cuntries["four"] = "Sodan";
+})(Cuntries || (Cuntries = {}));
+var cun2;
+(function (cun2) {
+    cun2["five"] = "Egypt My cun";
+})(cun2 || (cun2 = {}));
+let nams = "hassan";
+if (nams === "zizo") {
+    console.log(`Heloo ${nams} Your cuntry is ${Cuntries.one}`);
+}
+else if (nams === "hassan") {
+    console.log(`Heloo ${nams} Your cuntry is ${cun2.five}`);
+}
+let Head = document.getElementById("headr");
+Head.style.color = "red";
+let img = document.getElementById("img");
+img.src;
+let inp = document.getElementById("input");
+inp.value;
+let dt = 100;
+dt.repeat(15);
+let alldt;
+alldt = 10;
+alldt = "10";
+function tstmix(tst) {
+    console.log(tst.one);
+    console.log(tst.two);
+    console.log(tst.three);
+}
+tstmix({ one: "zizo", two: true, three: 100 });
 //# sourceMappingURL=index.js.map
