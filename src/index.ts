@@ -393,3 +393,80 @@ let uI3 = new UsImp(true, "open sans", "zizo");
 console.log(uI1.uname);
 console.log(uI1.save());
 console.log(UsImp.counter);
+
+//abstract classes
+
+abstract class Food {
+  abstract foodPrice(): void;
+  constructor(public title: string) {}
+}
+
+class Pizza extends Food {
+  constructor(title: string, public price: number) {
+    super(title);
+  }
+  foodPrice(): void {
+    console.log(`Pizza Price $${this.price}`);
+  }
+}
+
+class Burger extends Food {
+  constructor(title: string, public price: number) {
+    super(title);
+  }
+  foodPrice(): void {
+    console.log(`Burger Pris $${this.price}`);
+  }
+}
+
+let newPizza = new Pizza("Hot Pizza", 150.0);
+let newBurger = new Burger("Beef Burger", 120.5);
+
+console.log(newPizza.title);
+console.log(newPizza.foodPrice());
+
+console.log(newBurger.title);
+console.log(newBurger.foodPrice());
+
+// polymorphism and method Override
+
+class Player {
+  constructor(public name: string) {}
+  attack(): void {
+    console.log(`hello Player `);
+  }
+}
+class PlOne extends Player {
+  constructor(name: string, public spear: number) {
+    super(name);
+  }
+  override attack(): void {
+    console.log(`wellCOme ${this.name} num of spear is ${this.spear}`);
+    this.spear -= 1;
+  }
+}
+
+let pone = new PlOne("AHmed", 100);
+console.log(pone.attack());
+pone.attack();
+console.log(pone.name);
+pone.attack();
+console.log(pone.spear);
+
+class Pltwo extends Player {
+  constructor(name: string, public axe: number) {
+    super(name);
+  }
+  override attack(): void {
+    super.attack();
+    console.log(`wellCOme ${this.name} num of spear is ${this.axe}`);
+    this.axe -= 1;
+  }
+}
+
+let ptwo = new Pltwo("Hassan", 200);
+console.log(ptwo.attack());
+ptwo.attack();
+console.log(ptwo.name);
+ptwo.attack();
+console.log(ptwo.axe);

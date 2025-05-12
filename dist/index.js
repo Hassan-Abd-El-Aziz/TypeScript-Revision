@@ -235,4 +235,74 @@ let uI3 = new UsImp(true, "open sans", "zizo");
 console.log(uI1.uname);
 console.log(uI1.save());
 console.log(UsImp.counter);
+class Food {
+    constructor(title) {
+        this.title = title;
+    }
+}
+class Pizza extends Food {
+    constructor(title, price) {
+        super(title);
+        this.price = price;
+    }
+    foodPrice() {
+        console.log(`Pizza Price $${this.price}`);
+    }
+}
+class Burger extends Food {
+    constructor(title, price) {
+        super(title);
+        this.price = price;
+    }
+    foodPrice() {
+        console.log(`Burger Pris $${this.price}`);
+    }
+}
+let newPizza = new Pizza("Hot Pizza", 150.0);
+let newBurger = new Burger("Beef Burger", 120.5);
+console.log(newPizza.title);
+console.log(newPizza.foodPrice());
+console.log(newBurger.title);
+console.log(newBurger.foodPrice());
+class Player {
+    constructor(name) {
+        this.name = name;
+    }
+    attack() {
+        console.log(`hello Player `);
+    }
+}
+class PlOne extends Player {
+    constructor(name, spear) {
+        super(name);
+        this.spear = spear;
+    }
+    attack() {
+        console.log(`wellCOme ${this.name} num of spear is ${this.spear}`);
+        this.spear -= 1;
+    }
+}
+let pone = new PlOne("AHmed", 100);
+console.log(pone.attack());
+pone.attack();
+console.log(pone.name);
+pone.attack();
+console.log(pone.spear);
+class Pltwo extends Player {
+    constructor(name, axe) {
+        super(name);
+        this.axe = axe;
+    }
+    attack() {
+        super.attack();
+        console.log(`wellCOme ${this.name} num of spear is ${this.axe}`);
+        this.axe -= 1;
+    }
+}
+let ptwo = new Pltwo("Hassan", 200);
+console.log(ptwo.attack());
+ptwo.attack();
+console.log(ptwo.name);
+ptwo.attack();
+console.log(ptwo.axe);
 //# sourceMappingURL=index.js.map
