@@ -42,6 +42,13 @@ function employees(
 }
 console.log(employees("Ahmed", 35000, 35));
 
+//type annotation with object
+let obj: { readonly unams: string; id: number; avi: boolean; tst?: number } = {
+  unams: "zizo",
+  id: 15,
+  avi: true,
+};
+
 //rest Parameter
 function nums(...num: number[]): string {
   let result: number = 0;
@@ -141,17 +148,17 @@ if (nams === "zizo") {
 
 // Data Assertions
 
-let Head = document.getElementById("headr") as HTMLElement;
-Head.style.color = "red";
+// let Head = document.getElementById("headr") as HTMLElement;
+// Head.style.color = "red";
 
-let img = <HTMLImageElement>document.getElementById("img");
-img.src;
+// let img = <HTMLImageElement>document.getElementById("img");
+// img.src;
 
-let inp = document.getElementById("input") as HTMLInputElement;
-inp.value;
+// let inp = document.getElementById("input") as HTMLInputElement;
+// inp.value;
 
-let dt: any = 100;
-dt.repeat(15);
+// let dt: any = 100;
+// dt.repeat(15);
 
 // Union and intersection types
 
@@ -176,3 +183,213 @@ function tstmix(tst: mixAB) {
 }
 
 tstmix({ one: "zizo", two: true, three: 100 });
+
+// interface declaretion
+interface UserData {
+  id: number;
+  readonly name: string;
+  salary?: number;
+}
+
+let uone: UserData = { id: 1, name: "Hassan", salary: 10000 };
+function uTwo(udata: UserData) {
+  console.log(udata.id);
+  console.log(udata.name);
+  console.log(udata.salary);
+}
+
+uTwo({ id: 2, name: "zizo" });
+
+//interface Methods & Parameter
+
+interface Users {
+  id: number;
+  name: string;
+  sayhi(): string;
+  goodmorning: () => string;
+  getdoubel(dt: number): number;
+}
+let userOne: Users = {
+  id: 1,
+  name: "mizo",
+  sayhi() {
+    return `hi ${this.name}`;
+  },
+  goodmorning: () => `Good Morning ${userOne.name}`,
+  getdoubel(dat) {
+    return dat * 2;
+  },
+};
+
+console.log(userOne.id);
+console.log(userOne.name);
+console.log(userOne.sayhi());
+console.log(userOne.goodmorning());
+console.log(userOne.getdoubel(5));
+
+// interface Reopen
+
+//Home page
+interface Settings {
+  theme: boolean;
+  font: string;
+}
+//sideBar
+interface Settings {
+  sideBar: boolean;
+}
+interface Settings {
+  title?: string;
+}
+let userSettings: Settings = {
+  theme: false,
+  font: "Open Sans",
+  sideBar: false,
+  title: "navBar",
+};
+
+console.log(userSettings.theme);
+console.log(userSettings.font);
+console.log(userSettings.sideBar);
+console.log(userSettings.title);
+
+interface users {
+  id: number;
+  name: string;
+}
+interface Moderator {
+  roule: string | number;
+}
+interface Admin extends users, Moderator {
+  protected?: boolean;
+}
+
+let usss: Admin = {
+  id: 101,
+  name: "Mohamed",
+  roule: 2,
+};
+
+console.log(usss.id);
+console.log(usss.name);
+console.log(usss.roule);
+
+// Class Type Annotation
+
+class Usess {
+  s: number;
+  n: string;
+  UpSal: () => string;
+  constructor(name: string, salary: number) {
+    this.n = name;
+    this.s = salary;
+    this.UpSal = function () {
+      return ` your Salary now is ${salary * 2}`;
+    };
+  }
+  sayheloo() {
+    return ` Heloo ${this.n}`;
+  }
+}
+
+let uones = new Usess("Mido", 26000);
+
+console.log(uones.n);
+console.log(uones.s);
+console.log(uones.UpSal());
+console.log(uones.sayheloo());
+
+// Class Access Modifiers
+
+class Tsts {
+  msg: () => string;
+  constructor(
+    public uname: string,
+    // private salary: number,
+    protected age: number
+  ) {
+    this.msg = function () {
+      return ` Your name is  ${uname} Your salary is  your Age is ${age}`;
+    };
+  }
+}
+
+let ts1 = new Tsts("zizo", 15000);
+
+console.log(ts1.uname);
+console.log(ts1.msg());
+
+// Get & Set Accessors
+
+class Userss {
+  msg: () => string;
+  constructor(
+    private _userName: string,
+    public age: number,
+    protected salary?: number
+  ) {
+    this.msg = function () {
+      return `WellCome Back Hassan`;
+    };
+  }
+  get userName() {
+    return this._userName;
+  }
+  set userName(val: string) {
+    this._userName = val;
+  }
+}
+
+let newUser = new Userss("Hassan", 154, 20000);
+console.log(newUser.msg);
+console.log(newUser.userName);
+newUser.userName = "Ahmed";
+console.log(newUser.userName);
+
+// class static member
+class stUsers {
+  static counter: number = 0;
+  static getcount(): string {
+    return ` ${this.counter} Users Created`;
+  }
+  constructor(public userNmae: string) {
+    stUsers.counter++;
+  }
+}
+
+let u1 = new stUsers("Hassan");
+let u2 = new stUsers("Ahmed");
+let u3 = new stUsers("Mohamed");
+
+console.log(u1.userNmae);
+console.log(stUsers.getcount());
+
+// class implements interface
+interface Settingees {
+  theme: boolean;
+  font: string;
+  save(): void;
+}
+class UsImp implements Settingees {
+  static counter = 0;
+  constructor(
+    public theme: boolean,
+    public font: string,
+    public uname: string
+  ) {
+    UsImp.counter++;
+  }
+  save(): void {
+    console.log(
+      `your Name is  ${this.uname} your theme ${this.theme} your font ${this.font} `
+    );
+  }
+}
+
+let uI1 = new UsImp(true, "open sans", "zizo");
+let uI2 = new UsImp(false, "open sans", "mido");
+let uI3 = new UsImp(true, "open sans", "zizo");
+
+console.log(uI1.uname);
+console.log(uI1.save());
+console.log(UsImp.counter);
