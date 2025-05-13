@@ -459,7 +459,7 @@ class Pltwo extends Player {
   }
   override attack(): void {
     super.attack();
-    console.log(`wellCOme ${this.name} num of spear is ${this.axe}`);
+    console.log(`wellCOme ${this.name} num of Axe is ${this.axe}`);
     this.axe -= 1;
   }
 }
@@ -470,3 +470,87 @@ ptwo.attack();
 console.log(ptwo.name);
 ptwo.attack();
 console.log(ptwo.axe);
+
+//Generics Type
+
+function returnDt<G>(val: G) {
+  return val;
+}
+
+console.log(returnDt<number>(100));
+console.log(returnDt<string>("zizo"));
+console.log(returnDt<boolean>(true));
+console.log(
+  returnDt(
+    [10, 20, 30].forEach((v: number) => {
+      console.log(v + v);
+    })
+  )
+);
+//multiple Generics
+
+function MultGen<T, S>(uname: T, salary: S): string {
+  return ` Hello ${uname} Your salary is ${salary}`;
+}
+
+console.log(MultGen<string, number>("hassan", 100000));
+
+// Generics Classes
+class UsersGen<G = string> {
+  constructor(public unamee: G) {}
+  msg(val: G): void {
+    console.log(`Hello ${this.unamee} - ${val}`);
+  }
+}
+let uGenone = new UsersGen<string | number>("hassan");
+uGenone.msg(100);
+
+let uGenTwo = new UsersGen<string | number>(100);
+uGenTwo.msg("mizo");
+
+// Generics & interface
+
+interface Books {
+  title: string;
+  price: number;
+  avilabel: boolean;
+}
+interface Games {
+  title: string;
+  price: number;
+  options: boolean;
+}
+
+class Collection<T = string> {
+  constructor(public data: T[] = []) {}
+  add(item: T): void {
+    this.data.push(item);
+  }
+}
+let BuierBook = new Collection<Books>();
+
+BuierBook.add({
+  title: "Humen",
+  price: 150,
+  avilabel: true,
+});
+BuierBook.add({
+  title: "Stories",
+  price: 30,
+  avilabel: true,
+});
+console.log(BuierBook);
+
+let BuierGame = new Collection<Games>();
+
+BuierGame.add({
+  title: "SubWay",
+  price: 150,
+  options: true,
+});
+BuierGame.add({
+  title: "Space",
+  price: 30,
+  options: true,
+});
+console.log(BuierGame);

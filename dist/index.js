@@ -295,7 +295,7 @@ class Pltwo extends Player {
     }
     attack() {
         super.attack();
-        console.log(`wellCOme ${this.name} num of spear is ${this.axe}`);
+        console.log(`wellCOme ${this.name} num of Axe is ${this.axe}`);
         this.axe -= 1;
     }
 }
@@ -305,4 +305,61 @@ ptwo.attack();
 console.log(ptwo.name);
 ptwo.attack();
 console.log(ptwo.axe);
+function returnDt(val) {
+    return val;
+}
+console.log(returnDt(100));
+console.log(returnDt("zizo"));
+console.log(returnDt(true));
+console.log(returnDt([10, 20, 30].forEach((v) => {
+    console.log(v + v);
+})));
+function MultGen(uname, salary) {
+    return ` Hello ${uname} Your salary is ${salary}`;
+}
+console.log(MultGen("hassan", 100000));
+class UsersGen {
+    constructor(unamee) {
+        this.unamee = unamee;
+    }
+    msg(val) {
+        console.log(`Hello ${this.unamee} - ${val}`);
+    }
+}
+let uGenone = new UsersGen("hassan");
+uGenone.msg(100);
+let uGenTwo = new UsersGen(100);
+uGenTwo.msg("mizo");
+class Collection {
+    constructor(data = []) {
+        this.data = data;
+    }
+    add(item) {
+        this.data.push(item);
+    }
+}
+let BuierBook = new Collection();
+BuierBook.add({
+    title: "Humen",
+    price: 150,
+    avilabel: true,
+});
+BuierBook.add({
+    title: "Stories",
+    price: 30,
+    avilabel: true,
+});
+console.log(BuierBook);
+let BuierGame = new Collection();
+BuierGame.add({
+    title: "SubWay",
+    price: 150,
+    options: true,
+});
+BuierGame.add({
+    title: "Space",
+    price: 30,
+    options: true,
+});
+console.log(BuierGame);
 //# sourceMappingURL=index.js.map
